@@ -1,0 +1,22 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkkCoder/proshop.git"
+  },
+  "author": "jayesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkkCoder/proshop/issues"
+  },
+  "homepage": "https://github.com/jkkCoder/proshop#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
