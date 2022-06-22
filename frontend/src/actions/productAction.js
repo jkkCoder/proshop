@@ -22,7 +22,6 @@ export const listProducts = () => async(dispatch) => {
 }
 
 export const listProductDetails = (id) => async(dispatch) => {
-    console.log("inside details actions")
     try {
         dispatch({type:PRODUCT_DETAILS_REQUEST})
 
