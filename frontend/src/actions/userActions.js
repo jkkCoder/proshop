@@ -19,10 +19,16 @@ export const login = (email,password) => async (dispatch)=>{
         })
 
         localStorage.setItem("userInfo",JSON.stringify(data))
-    }catch(err){
+    }
+    catch(error) {
+        console.log(error)
+        console.log("error response",error.response);
+        console.log(error.response.data.message)
+        console.log(error.response && error.response.data.message)
         dispatch({
             type:USER_LOGIN_FAIL,
-            payload:error.response && error.response.data.messsage ? error.response.data.message : error.message
+            // payload:error.response && error.response.data.messsage ? error.response.data.message : error.message
+            payload:error.response.data.message
         })
     }
 
