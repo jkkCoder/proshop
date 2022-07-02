@@ -4,17 +4,16 @@ import Order from "../models/orderModel.js"
 // @desc    create new order
 // @route   POST /api/order
 // @access  protected
-const addOrderItems = asyncHandler(async(req,res)=>{
-    const {orderItems,shippingAddress,paymentMethod,itemsPrice,taxPrice,shippingPrice,totalPrice} = req.body
+const addOrderItems = asyncHandler(async (req, res) => {
+    const { orderItems, shippingAddress, paymentMethod, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body
 
-    if(orderItems && orderItems.length === 0)
-    {
+    if (orderItems && orderItems.length === 0) {
         res.status(400)
         throw new Error("No order items")
-    }else{
+    } else {
         const order = new Order({
             orderItems,
-            user:req.user._id,
+            user: req.user._id,
             shippingAddress,
             paymentMethod,
             itemsPrice,
@@ -29,4 +28,20 @@ const addOrderItems = asyncHandler(async(req,res)=>{
     }
 })
 
-export {addOrderItems}
+// @desc    GET order by ID
+// @route   GET /api/order/:id
+// @access  Private
+const getOrderById = asyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id).populate("user","name email")
+
+    if(order){
+        res.json(order)
+    }else{
+        res.status(404)
+        throw new Error("Order not found")
+    }
+
+})
+
+
+export { addOrderItems,getOrderById }
