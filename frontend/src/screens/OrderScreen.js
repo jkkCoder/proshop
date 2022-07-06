@@ -28,7 +28,7 @@ const OrderScreen = () => {
 
     useEffect(() => {
         dispatch(getOrderDetails(orderId))
-    }, [])
+    }, [dispatch,orderId])
 
     return loading ? <Loader /> : error ? <Message variant="danger">{error}</Message>
         : <>
