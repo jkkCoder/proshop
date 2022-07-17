@@ -87,6 +87,7 @@ export const payOrder = (orderId,paymentResult) => async (dispatch,getState)=>{
             }
         }
         const {data} = await axios.put(`/api/orders/${orderId}/pay`,paymentResult,config)
+        console.log("calling /api/orders/id/pay with req",paymentResult)
         dispatch({
             type: ORDER_PAY_SUCCESS,
             payload:data
