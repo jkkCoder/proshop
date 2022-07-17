@@ -21,15 +21,17 @@ const OrderScreen = () => {
     const orderPay = useSelector(state => state.orderPay)
     const { loading:loadingPay, success:successPay } = orderPay
 
-    if (!loading) {
-        //calculate prices
-        const addDecimals = (num) => {
-            return (Math.round(num * 100) / 100).toFixed(2)
-        }
+    //calculate prices
+    const addDecimals = (num) => {
+        return (Math.round(num * 100) / 100).toFixed(2)
+    }
 
+    if (!loading) {
         order.itemsPrice = addDecimals(
             order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
         )
+
+        console.log("items price is ",order.itemsPrice)
     }
 
     useEffect(() => {
@@ -154,7 +156,7 @@ const OrderScreen = () => {
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Total</Col>
-                                    <Col>${order.totalPrice}</Col>
+                                    <Col>${addDecimals(order.totalPrice)}</Col>
                                 </Row>
                             </ListGroup.Item>
                             {!order.isPaid && (
@@ -164,7 +166,7 @@ const OrderScreen = () => {
                                         <Loader />
                                     ):(
                                         <PayPalButton
-                                            amount = {order.totalPrice}
+                                            amount = {addDecimals(order.totalPrice)}
                                             onSuccess = {successPaymentHandler}
                                         />
                                     )}
