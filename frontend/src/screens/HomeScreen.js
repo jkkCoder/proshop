@@ -4,33 +4,38 @@ import { Row, Col } from 'react-bootstrap'
 import Product from "../components/Product"
 import Message from "../components/Message"
 import Loader from "../components/Loader"
+import Paginate from '../components/Paginate'
 import { listProducts } from '../actions/productAction'
 import { useParams } from 'react-router-dom'
 
 const HomeScreen = () => {
   const keyword = useParams().keyword
+  const pageNumber = useParams().pageNumber || 1
   console.log(keyword)
   const dispatch = useDispatch()
 
   const productList = useSelector(state => state.productList)
-  const { loading, error, products } = productList
+  const { loading, error, products,page,pages } = productList
 
   useEffect(() => {
-    dispatch(listProducts(keyword))
+    dispatch(listProducts(keyword, pageNumber))
     console.log(products)
-  }, [dispatch,keyword])
+  }, [dispatch, keyword, pageNumber])
 
   return (
     <>
       <h1>Latest Products</h1>
       {loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> :
-        <Row>
-          {products.map(product => (
-            <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-              <Product product={product} />
-            </Col>
-          ))}
-        </Row>
+        <>
+          <Row>
+            {products.map(product => (
+              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                <Product product={product} />
+              </Col>
+            ))}
+          </Row>
+          <Paginate pages={pages} page={page} keyword={keyword ? keyword : ""}/>
+        </>
       }
 
     </>
