@@ -5,7 +5,14 @@ import Product from "../models/productModel.js"
 // @route   GET /api/products
 // @access  public
 const getProducts = asyncHandler(async (req, res) => {
-    const products = await Product.find({})
+    const keyword = req.query.keyword ? {
+        name:{
+            $regex:req.query.keyword,
+            $options:"i"
+        }
+    } : {}
+    const products = await Product.find({...keyword})
+    console.log(products)
     res.json(products)
 })
 
@@ -90,10 +97,10 @@ const  createProductReview = asyncHandler(async (req, res) => {
     if (product) {
         const alreadyReviewed = product.reviews.find(r=>r.user.toString()===req.user._id.toString())
 
-        // if(alreadyReviewed){
-        //     res.status(400)
-        //     throw new Error("Product already reviewed")
-        // }
+        if(alreadyReviewed){
+            res.status(400)
+            throw new Error("Product already reviewed")
+        }
 
         const review = {
             name:req.user.name,
