@@ -5,8 +5,10 @@ import Product from "../components/Product"
 import Message from "../components/Message"
 import Loader from "../components/Loader"
 import Paginate from '../components/Paginate'
+import Meta from '../components/Meta'
 import { listProducts } from '../actions/productAction'
 import { useParams } from 'react-router-dom'
+import ProductCarousel from '../components/ProductCarousel'
 
 const HomeScreen = () => {
   const keyword = useParams().keyword
@@ -24,6 +26,8 @@ const HomeScreen = () => {
 
   return (
     <>
+    <Meta />
+     {!keyword && <ProductCarousel/>}
       <h1>Latest Products</h1>
       {loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> :
         <>
