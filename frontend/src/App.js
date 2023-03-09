@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {BrowserRouter as Router,Route, Routes} from "react-router-dom"
 import {Container} from "react-bootstrap"
 import Header from "./components/Header";
@@ -20,9 +20,34 @@ import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 
 const App = () => {
+  const [showBot,setShowBot] = useState(false)
   return (
     <Router>
       <Header />
+      <div onClick={()=>setShowBot(prev=>!prev)} style={{
+        position: "fixed",
+        bottom: "30px",
+        right: "30px"
+      }}>
+        <img src="https://w7.pngwing.com/pngs/1001/63/png-transparent-internet-bot-computer-icons-chatbot-sticker-electronics-face-careobot-thumbnail.png" alt="chatbot" height="50" width="50"/>
+      </div>
+      {showBot && 
+      <div style={{
+        position: "fixed",
+        bottom: "70px",
+        right: "30px",
+        zIndex: 10
+      }}>
+        <iframe
+          title="proshop chat bot"
+          allow="microphone;"
+          width="350"
+          height="430"
+          src="https://console.dialogflow.com/api-client/demo/embedded/db398aa5-b554-4bc8-922c-a3e819046438">
+        </iframe>
+      </div>
+      
+    }
       <main className="py-3">
         <Container> 
           <Routes>
