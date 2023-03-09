@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "online-shopping-umud",
+  "private_key_id": "c0a81ed6ad6f80356d77ced28a7f6d5f43f3bb7d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCiBqP1UefLlxsn\n6ExhQHR0XQxqHceLB8A/5ny/dis9vGAFVa5p1CwnOof3+B5xd3EfYtbmjJpegEua\n4nqhqqYEcOrsFRdCyn3rFG1Y3VhZvxEXUOOE3ijr0hHOHJB8ovKIzVGUgZQAgnxL\nQfg1ESQT16sgghEL5foLgkoD9b8F6uwbVedbNGQebPsxNChfoENsJ32lLow+d6Y8\nV2pa9xvdpz6MieOPmzyOgI+DPeTLp7XwhPKI/ZP76UdQGHNd1j2iJnD5j3jO3AMv\nCfyVxihsWgMqL3mmShV4r4seUct8djs1HeHlMl/160BAJaB77K84+1ErVeyLp4iu\n71FidJvdAgMBAAECggEABRef1hE7r4ShhBzTL7hKoLCe+APVFmvJMUjxcUQJwmA2\nBVzmxSk3tQjsJpE8BbVrDwE4f1j6bg9qsOS+1W9rVdblr0NPbpg2ImoLMMCOKw3r\n/9dZOz8POrAowplXui8V39JSJtB2whhXxza80hAmmeAMnxIvbngNJojzAhJabVli\nuLDa+vDxuqCUu+fdnl//MNJN2IXMGcnU7CMXs4UPLztF1Thu4dtbge7RRnTiwKUC\nqNrPlLBBN/DDL7etm088hcOW+4PW6Y31ZD6TmGxiSsPQlGQ3sYL8qAMxrxeTji0s\n+LSr3V1XQ1EN/ZiPnNstaxAkFGqId0yRHcSIu31KAQKBgQDcCu4r91LwbvB/+8Lh\niqqUSUtXRVwcKPOtjxiOHJ/jLgY7sJtTB0WBzmv8ZFTs7673C7aEPNUw8g5rzdQB\nW9K2cwE2OYD3Ylqm+EGxcdhB+dKFz0En7nrdI/SB081RUv+safnL9yG2tKzPt8D5\nJP7iM9+/8/4j2BZLAtglidRaAQKBgQC8gLBbP5koa74PVFC91nfF9ySGt9yNR+Qk\nrZ3V7AfG1Yqxk4hjUXamvC/kVtmnqMt/ng9JGs4ikksSofJAW1VcXgTKgY/9kY8R\nzZPVUPxiR+K0W4vnjGkwz8sTcnGBTuA24BDIB1T410/dHBoOOnZTt5OMbI4E0KV6\np9CjcDjp3QKBgQCe43ml37pRCRq6n7XSHModt2siwl/Hqb6Ddc+aVosRhVtU4KrX\n4mlLWR3aqywzxsMFery5ch/TbwYAzCipLn/R5OtcF1vLxoaFCMCO/BDXWyisHMME\nrYykgGD/Gkyoy5D5E7Efmf0LLB2ZBCvg+9jcx+5qcinyAgfe9FfVi1f+AQKBgHn6\n6KRTll+SwQ2YaRs/cog3cnp+9giykc6uTqnEsA+Z1cMtjh9+8sHYm0EudnBJCU6O\n0KNk5il283+eLm447Bb2fDEzACN9EtDZcCWk330VuX0ulG0E7nj4rhfqgcrEaND5\n08ItBG52niad7bpxWGq6K4++G3TAM6UYfSmWEC49AoGBANugzysLKOGQEP5ePfU1\n3belj6DH8vwuZsU13m9ke4Rpb+wtuzzkmc/aKrH4iZWG15u+5w2QOp8+f7nvx2WK\n1Enct8qi2M3h3Dfd/uQk2APw2a5xyEtIRkQkc7qYVMNNySdHmnw5XXxnSY32U/ni\nAnnpn2CkZN9LGqouRUJov4p1\n-----END PRIVATE KEY-----\n",
+  "client_email": "jayesh-kumar@online-shopping-umud.iam.gserviceaccount.com",
+  "client_id": "106645774550708523062",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/jayesh-kumar%40online-shopping-umud.iam.gserviceaccount.com"
+}
