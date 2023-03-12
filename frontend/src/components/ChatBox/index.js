@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import './styles.css';
 
@@ -9,16 +10,25 @@ const Chatbox = ({messages,setMessages}) => {
     messagesContainerRef.current.scrollTo(0, messagesContainerRef.current.scrollHeight);
   }, [messages]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (inputValue.trim()) {
-      setMessages([...messages, { text: inputValue.trim(), isUser: true }]);
+      setMessages(msgs => [...msgs, { text: inputValue.trim(), isUser: true }]);
+      console.log("messages are 1",messages)
 
       //call the dialogflow api here
+      const config = {
+        headers:{
+            "Content-Type":"application/json"
+            }
+        }
+        const res = await axios.post("/dialogflow",{message:inputValue},config)
+        console.log("response is ",res)
+        setMessages(msgs => [...msgs, { text: res.data.message, isUser: false }]);
+        console.log("messages are 2",messages)
 
-
-
-      setInputValue('');
+        //set input value empty again
+        setInputValue('');
     }
   };
 

@@ -46,7 +46,7 @@ app.post('/dialogflow', async (req, res) => {
       session : sessionClient.projectAgentSessionPath(CREDENTIALS['project_id'], sessionId),
       queryInput: {
         text: {
-          text: "check my cart",
+          text: message,
           languageCode: 'en-US',
         },
       },
