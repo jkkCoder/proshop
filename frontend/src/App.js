@@ -18,16 +18,25 @@ import UserEditScreen from "./screens/UserEditScreen";
 import ProductListScreen from "./screens/ProductListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
+import Chatbox from "./components/ChatBox";
 
 const App = () => {
   const [showBot,setShowBot] = useState(false)
+  const [messages, setMessages] = useState([]);
+  console.log(showBot)
+  const handleBotClick = () => {
+    setShowBot(prev => !prev);
+    console.log("bot clicked");
+  }
   return (
     <Router>
       <Header />
-      <div onClick={()=>setShowBot(prev=>!prev)} style={{
+      <div onClick={handleBotClick}
+       style={{
         position: "fixed",
         bottom: "30px",
-        right: "30px"
+        right: "30px",
+        zIndex: 10,
       }}>
         <img src="https://w7.pngwing.com/pngs/1001/63/png-transparent-internet-bot-computer-icons-chatbot-sticker-electronics-face-careobot-thumbnail.png" alt="chatbot" height="50" width="50"/>
       </div>
@@ -38,15 +47,8 @@ const App = () => {
         right: "30px",
         zIndex: 10
       }}>
-        <iframe
-          title="proshop chat bot"
-          allow="microphone;"
-          width="350"
-          height="430"
-          src="https://console.dialogflow.com/api-client/demo/embedded/db398aa5-b554-4bc8-922c-a3e819046438">
-        </iframe>
-      </div>
-      
+        <Chatbox messages={messages} setMessages={setMessages}/>
+      </div>   
     }
       <main className="py-3">
         <Container> 
