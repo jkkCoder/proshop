@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
+import { getReplyMessage } from '../../utils/getChatbotReply';
 import './styles.css';
 
 const Chatbox = ({messages,setMessages}) => {
@@ -14,7 +15,9 @@ const Chatbox = ({messages,setMessages}) => {
     e.preventDefault();
     if (inputValue.trim()) {
       setMessages(msgs => [...msgs, { text: inputValue.trim(), isUser: true }]);
-      console.log("messages are 1",messages)
+
+      //set input value empty again
+      setInputValue('');
 
       //call the dialogflow api here
       const config = {
@@ -24,11 +27,11 @@ const Chatbox = ({messages,setMessages}) => {
         }
         const res = await axios.post("/dialogflow",{message:inputValue},config)
         console.log("response is ",res)
-        setMessages(msgs => [...msgs, { text: res.data.message, isUser: false }]);
-        console.log("messages are 2",messages)
+        const reply = getReplyMessage(res.data.message,setMessages)
 
-        //set input value empty again
-        setInputValue('');
+        if(reply.shouldSet === true){
+          setMessages(msgs => [...msgs, { text: reply.text, isUser: false }]);
+        }
     }
   };
 
